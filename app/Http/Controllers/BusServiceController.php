@@ -8,6 +8,6 @@ class BusServiceController extends Controller
 {
     public function index()
     {
-        return ' STADIUM TRANSPORTATION ';
+        return  view('welcome');
     }
 }
