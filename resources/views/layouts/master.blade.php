@@ -29,7 +29,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#">Stadium Transportation</a>
+              <a class="navbar-brand" href="#"><i>Stadium Transportation</i></a>
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
@@ -75,7 +75,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="/js/custom.js"></script> 
+    <script src="/js/custom.js"></script>
 
     {{-- Yield any page specific JS files or anything else you might want at the end of the body --}}
     @yield('body')
