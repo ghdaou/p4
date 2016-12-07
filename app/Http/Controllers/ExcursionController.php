@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Auth;
 
 class ExcursionController extends Controller
 {
@@ -13,7 +14,17 @@ class ExcursionController extends Controller
      */
     public function index()
     {
-        //
+        return view('reserve');
+    }
+
+    /**
+     * Entry to rservation
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('create');        //
     }
 
     /**
@@ -21,9 +32,10 @@ class ExcursionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function createRes()
     {
-        //
+        return view('reserve');
+
     }
 
     /**

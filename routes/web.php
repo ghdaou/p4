@@ -8,21 +8,14 @@
 
 Route::get('/', 'BusServiceController@index')->name('busservice.index');
 
-Route::get('/charters', 'CharterController@index')->name('charters.index');
-Route::get('/charters/create', 'CharterController@create')->name('charters.create');
-Route::post('/charters', 'CharterController@store')->name('charters.store');
-Route::get('/charters/{charter}', 'CharterController@show')->name('charters.show');
-Route::get('/charters/{charter}/edit', 'CharterController@edit')->name('charters.edit');
-Route::put('/charters/{charter}', 'CharterController@update')->name('charters.update');
-Route::delete('/charters/{charter}', 'CharterController@destroy')->name('charters.destroy');
-
 Route::get('/excursions', 'ExcursionController@index')->name('excursion.index');
 Route::get('/excursions/create', 'ExcursionController@create')->name('excursions.create');
+Route::get('/excursions/create/form', 'ExcursionController@createRes')->name('excursions.createRes')->middleware('auth');
 Route::post('/excursions', 'ExcursionController@store')->name('excursions.store');
-Route::get('/excursions/{excursion}', 'ExcursionController@show')->name('excursions.show');
-Route::get('/excursions/{excursion}/edit', 'ExcursionController@edit')->name('excursions.edit');
-Route::put('/excursions/{excursion}', 'ExcursionController@update')->name('excursions.update');
-Route::delete('/excursions/{excursion}', 'ExcursionController@destroy')->name('excursions.destroy');
+Route::get('/excursions/{id}', 'ExcursionController@show')->name('excursions.show');
+Route::get('/excursions/{id}/edit', 'ExcursionController@edit')->name('excursions.edit');
+Route::put('/excursions/{id}', 'ExcursionController@update')->name('excursions.update');
+Route::delete('/excursions/{id}', 'ExcursionController@destroy')->name('excursions.destroy');
 
 Route::get('/contact', 'PageController@contact')->name('page.contact');
 
@@ -66,4 +59,22 @@ Route::get('/debug', function() {
 
     echo '</pre>';
 
+});
+
+Auth::routes();
+Route::get('/logout','Auth\LoginController@logout')->name('logout');
+
+Route::get('/home', 'HomeController@index');
+
+Route::get('/show-login-status', function() {
+
+    # You may access the authenticated user via the Auth facade
+    $user = Auth::user();
+
+    if($user)
+        dump($user->toArray());
+    else
+        dump('You are not logged in.');
+
+    return;
 });

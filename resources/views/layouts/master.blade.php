@@ -29,19 +29,18 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#"><i>Stadium Transportation</i></a>
+              <a class="navbar-brand" href="/"><i>Stadium Transportation</i></a>
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-                <li><a href="#">Link</a></li>
+                <li class="active"><a href="/">HOME <span class="sr-only">(current)</span></a></li>
+                <li><a href="/excursions/create">RESERVATIONS</a></li>
+                <li><a href="#">TESTIMONIALS</a></li>
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">EVENTS <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
                     <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
                     <li class="divider"></li>
                     <li><a href="#">Separated link</a></li>
                     <li class="divider"></li>
@@ -49,7 +48,16 @@
                     <li><a href="#">link</a></li>
                   </ul>
                 </li>
+
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">LOCATIONS <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Action</a></li>
+                  </ul>
+                </li>
               </ul>
+
               <form class="navbar-form navbar-left" role="search">
                 <div class="form-group">
                   <input type="text" class="form-control" placeholder="Search">
@@ -57,12 +65,33 @@
                 <button type="submit" class="btn btn-default">Submit</button>
               </form>
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Link</a></li>
-                <li><a href="#">Link</a></li>
+                    @if(Auth::check())
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }}<span class="caret"></span></a>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="/Ecursions/show">See My Bookings</a></li>
+                        <li class="divider"></li>
+                        <li><a href="/logout">Logout</a></li>
+                      </ul>
+                    </li>
+                    @else
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Login <span class="caret"></span></a>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="/login">login</a></li>
+                        <li class="divider"></li>
+                        <li><a href="/register">Register</a></li>
+                      </ul>
+                    </li>
+                    @endif
               </ul>
             </div>
           </div>
         </nav>
+
+        @if(Session::get('flash_message') != null))
+            <div class='flash_message'>{{ Session::get('flash_message') }}</div>
+        @endif
 
         {{-- Main page content will be yielded here --}}
         @yield('content')

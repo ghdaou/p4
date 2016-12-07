@@ -1,5 +1,7 @@
 body {
-    padding-top: 50px
+    padding-top: 50px;
+    background-color: #00FFFF;
+    background-image:
 }
 
 body > .navbar {
@@ -17,12 +19,24 @@ body > .navbar {
     }
 }
 
+.flash_message {
+    width:100%;
+    text-align:center;
+    padding:5px;
+    position:fixed;
+    top:0;
+    left:0;
+    background-color:yellow;
+    font-weight:bold;
+}
+
 #home {
     padding-top: 0
 }
 
 #home .navbar-brand {
-    padding: 13.5px 15px 12.5px
+    padding: 13.5px 15px 12.5px;
+    color: yellow
 }
 
 #home .navbar-brand > img {
