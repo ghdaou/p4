@@ -11,7 +11,7 @@
 
 @section('content')
 
-    <div class='welcome-content'>
+    <div class='res-content'>
 
         Reserving and paying for seat/s on our coach bus is easy and convenient.
         All major credit cards and Paypal are accepted.

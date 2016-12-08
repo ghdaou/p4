@@ -20,9 +20,7 @@
             </br>
         </div>
         <div class='welcome-main-con'>
-            Leave the driving to us while you travel on a luxury motor coach
 
-            between convenient locactions in Boston and Metro North/South and Gillette Stadium.
         </div>
     </div>
 
