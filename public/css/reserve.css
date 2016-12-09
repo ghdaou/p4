@@ -1,9 +1,9 @@
 
 .res-content{
     float: right;
-    width: 250px;
+    width: 350px;
     height: auto;
     background-color: white;
     font-size: 10px;
-
+    border: 1px;
 }

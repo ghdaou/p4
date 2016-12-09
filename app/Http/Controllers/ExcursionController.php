@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Auth;
+use App\Reservation;
 
 class ExcursionController extends Controller
 {
@@ -55,9 +56,14 @@ class ExcursionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        $reservations = Reservation::where('user_id', '=', '1')->get();
+
+        # Make sure we have results before trying to print them...
+        if($reservations) {
+                return view('show')->with('reservations', $reservations);
+            }
     }
 
     /**

@@ -17,6 +17,7 @@ class ReservationsTableSeeder extends Seeder
              'first_name' => 'George',
              'last_name' => 'Daou',
              'email' => 'georgehdaou@yahoo.com',
+             'user_id' => 1,
              'num_pass' => 2,
              'pickup_loc' => 'North Shore Mall',
              'event' => 'Patriots vs Ravens',
@@ -29,6 +30,7 @@ class ReservationsTableSeeder extends Seeder
              'first_name' => 'Jeanne',
              'last_name' => 'Maccaroni',
              'email' => 'jeanne@yahoo.com',
+             'user_id' => 1,
              'num_pass' => 2,
              'pickup_loc' => 'South Shore Shore Mall',
              'event' => 'Patriots vs Ravens',
@@ -41,10 +43,11 @@ class ReservationsTableSeeder extends Seeder
              'first_name' => 'Myrna',
              'last_name' => 'Davidson',
              'email' => 'myrna@bcc.com',
+             'user_id' => 2,
              'num_pass' => 5,
              'pickup_loc' => 'South Shore Shore Mall',
              'event' => 'Patriots vs Ravens',
-             'spe_instr' => 'Wheelchair needed',            
+             'spe_instr' => 'Wheelchair needed',
          ]);
 
      }

@@ -12,7 +12,7 @@ Route::get('/excursions', 'ExcursionController@index')->name('excursion.index');
 Route::get('/excursions/create', 'ExcursionController@create')->name('excursions.create');
 Route::get('/excursions/create/form', 'ExcursionController@createRes')->name('excursions.createRes')->middleware('auth');
 Route::post('/excursions', 'ExcursionController@store')->name('excursions.store');
-Route::get('/excursions/{id}', 'ExcursionController@show')->name('excursions.show');
+Route::get('/excursions/show', 'ExcursionController@show')->name('excursions.show')->middleware('auth');
 Route::get('/excursions/{id}/edit', 'ExcursionController@edit')->name('excursions.edit');
 Route::put('/excursions/{id}', 'ExcursionController@update')->name('excursions.update');
 Route::delete('/excursions/{id}', 'ExcursionController@destroy')->name('excursions.destroy');
@@ -60,6 +60,17 @@ Route::get('/debug', function() {
     echo '</pre>';
 
 });
+
+/**
+* A quick and dirty way to set up a whole bunch of practice routes
+* that I'll use in lecture.
+*/
+Route::get('/practice', 'PracticeController@index')->name('practice.index');
+for($i = 0; $i < 100; $i++) {
+    Route::get('/practice/'.$i, 'PracticeController@example'.$i)->name('practice.example'.$i);
+
+}
+
 
 Auth::routes();
 Route::get('/logout','Auth\LoginController@logout')->name('logout');
