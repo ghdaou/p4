@@ -22,7 +22,7 @@ class CreateEventsTable extends Migration
             # The rest of the fields...
             $table->string('event_name');
             $table->string('date');
-            $table->integer('venue');
+            $table->string('venue');
             $table->string('time');
 
         });

@@ -40,20 +40,22 @@
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">EVENTS <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Patriots vs Ravens</a></li>
+                    <li><a href="#">Patriots vs Jets</a></li>
                     <li class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">link</a></li>
-                    <li><a href="#">link</a></li>
+                    <li><a href="#">Taylor Swift</a></li>
+                    <li><a href="#">Kenny Chesney</a></li>
                   </ul>
                 </li>
 
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">LOCATIONS <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Action</a></li>
+                    <li><a href="#">North Shore Mall</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Boston Common</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">South Shore Mall</a></li>
                   </ul>
                 </li>
               </ul>
