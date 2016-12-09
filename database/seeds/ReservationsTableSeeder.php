@@ -32,7 +32,19 @@ class ReservationsTableSeeder extends Seeder
              'num_pass' => 2,
              'pickup_loc' => 'South Shore Shore Mall',
              'event' => 'Patriots vs Ravens',
-             'spe_instr' => 'Go Ravens',            
+             'spe_instr' => 'Go Ravens',
+         ]);
+
+         DB::table('reservations')->insert([
+             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+             'first_name' => 'Myrna',
+             'last_name' => 'Davidson',
+             'email' => 'myrna@bcc.com',
+             'num_pass' => 5,
+             'pickup_loc' => 'South Shore Shore Mall',
+             'event' => 'Patriots vs Ravens',
+             'spe_instr' => 'Wheelchair needed',            
          ]);
 
      }
