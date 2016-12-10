@@ -14,9 +14,9 @@
     <div class='welcome-content'>
         <div class='welcome-header'>
 
-            Crowdpowered Travel
+            Crowdpowered Travel To
             </br>
-            BOSTON-GILLETTE STADIUM
+            GILLETTE STADIUM
             </br>
         </div>
         <div class='welcome-main-con'>

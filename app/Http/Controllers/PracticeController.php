@@ -11,15 +11,17 @@ use App\Book;
 use App\Author;
 use App\Auth;
 use App\Reservation;
+use App\Event;
+use App\PickupLocation;
 
 class PracticeController extends Controller
 {
     public function example18() {
-        echo Auth::user()->id;
+        dump (PickupLocation::all());
     }
 
     public function example17() {
-        $reservations = Reservation::where('user_id', '=', '1')->first();
+        $reservations = Reservation::where('user_id', '=', '1')->get();
 
         # Make sure we have results before trying to print them...
         if($reservations) {

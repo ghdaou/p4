@@ -8,6 +8,9 @@
 
     <meta charset='utf-8'>
 
+    <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css' rel='stylesheet'>
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css' rel='stylesheet'>
+    <link href='https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/lumen/bootstrap.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="/css/custom.min.css">
@@ -40,22 +43,18 @@
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">EVENTS <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Patriots vs Ravens</a></li>
-                    <li><a href="#">Patriots vs Jets</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Taylor Swift</a></li>
-                    <li><a href="#">Kenny Chesney</a></li>
+                      @foreach (DB::table('events')->get()->toArray() as $event)
+                         <li><a href="#">{{ $event->event_name }}</a></li>
+                      @endforeach
                   </ul>
                 </li>
-
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">LOCATIONS <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">North Shore Mall</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Boston Common</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">South Shore Mall</a></li>
+                      @foreach (DB::table('pickup_locations')->get()->toArray() as $location)
+                         <li><a href="#">{{ $location->pickup_loc_name}}</a></li>
+                      @endforeach
+                   </ul>
                   </ul>
                 </li>
               </ul>
@@ -71,7 +70,7 @@
                     <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }}<span class="caret"></span></a>
                       <ul class="dropdown-menu" role="menu">
-                        <li><a href="/excursions/show">See My Bookings</a></li>
+                        <li><a href="/excursions/show">Show My Bookings</a></li>
                         <li class="divider"></li>
                         <li><a href="/logout">Logout</a></li>
                       </ul>

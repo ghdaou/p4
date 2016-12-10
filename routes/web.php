@@ -8,7 +8,7 @@
 
 Route::get('/', 'BusServiceController@index')->name('busservice.index');
 
-Route::get('/excursions', 'ExcursionController@index')->name('excursion.index');
+Route::get('/', 'ExcursionController@index')->name('excursion.index');
 Route::get('/excursions/create', 'ExcursionController@create')->name('excursions.create');
 Route::get('/excursions/create/form', 'ExcursionController@createRes')->name('excursions.createRes')->middleware('auth');
 Route::post('/excursions', 'ExcursionController@store')->name('excursions.store');
