@@ -32,6 +32,6 @@ class CreatePickuplocationReservationTable extends Migration
 
      public function down()
      {
-         Schema::drop('pickuplocation_reservation');
+         Schema::drop('pickup_location_reservation');
      }
 }
