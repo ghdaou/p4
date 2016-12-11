@@ -16,4 +16,15 @@ class PickupLocation extends Model
         return $this->hasMany('App\Reservation');
     }
     /* End Relationship Methods */
+
+    public static function pickuplocationsForCheckboxes() {
+
+        $pickuplocations = PickupLocation::get();
+        $pickuplocations_for_checkboxes = [];
+        foreach($pickuplocations as $pickuplocation) {
+            $pickuplocations_for_checkboxes[$pickuplocation->id] = $pickuplocation->pickup_loc_name;
+        }
+
+        return $pickuplocations_for_checkboxes;
+    }
 }
