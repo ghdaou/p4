@@ -16,6 +16,13 @@ use App\PickupLocation;
 
 class PracticeController extends Controller
 {
+    public function example19() {
+
+        $reservation = Reservation::first();
+        dump($reservation->pickuplocations());
+
+    }
+
     public function example18() {
         dump (PickupLocation::all());
     }

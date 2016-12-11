@@ -57,7 +57,7 @@
               <div class="col-lg-10">
                 <select class="form-control" id="event_id" name='event_id'>
                     @foreach($events_for_dropdown as $event_id => $event_name)
-                         <option value='{{ $event_id }}' {{ ($reservation->event_id == $event_id) ? 'SELECTED' : '' }}>
+                         <option value='{{ $event_id }}'>
                              {{$event_name}}
                          </option>
                      @endforeach

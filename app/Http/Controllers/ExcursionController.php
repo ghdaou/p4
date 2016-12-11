@@ -96,11 +96,19 @@ class ExcursionController extends Controller
         $events_for_dropdown = Event::eventsForDropdown();
         $pickup_loc_for_checkboxes = PickupLocation::pickuplocationsForCheckboxes();
 
+
+        # Just the pick up locations for this reservation
+        $pickup_locations_for_this_reservation = [];
+        foreach ($reservation->pickuplocations() as $location) {
+            $pickup_locations_for_this_reservation[] = $location->pickup_loc_name;
+        }
+
         # Make sure $authors_for_dropdown is passed to the view
         return view('edit')->with([
             'reservation' => $reservation,
             'events_for_dropdown' => $events_for_dropdown,
-            'pickup_loc_for_checkboxes' => $pickup_loc_for_checkboxes
+            'pickup_loc_for_checkboxes' => $pickup_loc_for_checkboxes,
+            'pickup_locations_for_this_reservation' => $pickup_locations_for_this_reservation
         ]);
     }
 

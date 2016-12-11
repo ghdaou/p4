@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    STADIUM TRANSPORATION
+    Edit Reservation
 @endsection
 
 @section('head')
@@ -12,41 +12,57 @@
 @section('content')
 
     <div class="jumbotron">
-        <form class="form-horizontal">
+
+        <h3>Editing your {{ $reservation->event }} Reservation </h3>
+        <br>
+        <form class="form-horizontal" method='POST' action="excurions/{{ $reservation->id }}">
+            {{ method_field('PUT') }}
+            {{ csrf_field() }}
+        <input name='id' value='{{$reservation->id}}' type='hidden'>
           <fieldset>
-            <legend>RESERVING SEAT/S</legend>
             <div class="form-group">
               <label for="inputFirstName" class="col-lg-2 control-label">First Name</label>
               <div class="col-lg-10">
-                <input type="text" class="form-control" id="inputFirstName" placeholder="First Name" name="first_name">
+                <input type="text" class="form-control" id="inputFirstName" value='{{ old('first_name', $reservation->first_name)  }}' name="first_name">
               </div>
+            <div class='error'>{{ $errors->first('first name') }}</div>
             </div>
             <div class="form-group">
               <label for="inputLastName" class="col-lg-2 control-label">Last Name</label>
               <div class="col-lg-10">
-                <input type="text" class="form-control" id="inputLastName" placeholder="Last Name" name="last_name">
+                <input type="text" class="form-control" id="inputLastName" value='{{ old('last_name', $reservation->last_name) }}' name="last_name">
               </div>
+              <div class='error'>{{ $errors->first('last name') }}</div>
             </div>
             <div class="form-group">
               <label for="inputEmail" class="col-lg-2 control-label">Email</label>
               <div class="col-lg-10">
-                <input type="text" class="form-control" id="inputEmail" placeholder="Email" name="email">
+                <input type="text" class="form-control" id="inputEmail" value='{{ old('email', $reservation->email) }}' name="email">
               </div>
             </div>
+            <div class='error'>{{ $errors->first('email') }}</div>
             <div class="form-group">
               <label for="inputNuPerons" class="col-lg-2 control-label">Number of Persons</label>
               <div class="col-lg-10">
-                <input type="text" class="form-control" id="inputNuPersons" placeholder="Number of Persons Traveling" name="num_pass">
+                <input type="text" class="form-control" id="inputNuPersons" value='{{ old('num_pass', $reservation->num_pass) }}' name="num_pass">
               </div>
             </div>
-
+            <div class='error'>{{ $errors->first('number of passengers') }}</div>
             <div class="form-group">
               <label class="col-lg-2 control-label">Pickup Location/s</label>
               <div class="col-lg-10">
                 <div class="radio">
                   <label>
                       @foreach($pickup_loc_for_checkboxes as $pickup_loc_id => $pickup_loc_name)
-                          <input type='checkbox' value='{{ $pickup_loc_id }}' name='pickup_loc_names[]'> {{ $pickup_loc_name }} <br>
+                         <input
+                          type='checkbox'
+                          value='{{ $pickup_loc_id }}'
+                          {{ (in_array($pickup_loc_name, $pickup_locations_for_this_reservation)) ? 'CHECKED' : '' }}
+                          name='pickup_loc_names[]'
+                          >
+                          {{ $pickup_loc_name }}
+                        </input>
+                         <br>
                       @endforeach
                   </label>
                 </div>
@@ -57,9 +73,10 @@
               <div class="col-lg-10">
                 <select class="form-control" id="event_id" name='event_id'>
                     @foreach($events_for_dropdown as $event_id => $event_name)
-                         <option value='{{ $event_id }}' {{ ($reservation->event_id == $event_id) ? 'SELECTED' : '' }}>
-                             {{$event_name}}
-                         </option>
+                        <option
+                            value='{{ old('event', $reservation->event) }}'
+                            {{ ($reservation->event_id == $event_id) ? 'SELECTED' : '' }}
+                        >{{$event_name}}</option>
                      @endforeach
                 </select>
                 <br>
@@ -68,7 +85,7 @@
             <div class="form-group">
               <label for="textArea" class="col-lg-2 control-label">Special Instructions</label>
               <div class="col-lg-10">
-                <textarea class="form-control" rows="3" id="SpInst" name="spe_instr"></textarea>
+                <textarea class="form-control" rows="3" id="SpInst" value='{{ old('spe_instr', $reservation->spe_instr) }}' name="spe_instr"></textarea>
                 <span class="help-block">Let us know of any special instructions we should know about.</span>
               </div>
             </div>
