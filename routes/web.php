@@ -14,6 +14,7 @@ Route::get('/excursions/create/form', 'ExcursionController@createRes')->name('ex
 Route::post('/excursions', 'ExcursionController@store')->name('excursions.store');
 Route::get('/excursions/show', 'ExcursionController@show')->name('excursions.show')->middleware('auth');
 Route::get('/excursions/{id}/edit', 'ExcursionController@edit')->name('excursions.edit');
+Route::get('/excursions/{id}/delete', 'ExcursionController@delete')->name('excursions.delete');
 Route::put('/excursions/{id}', 'ExcursionController@update')->name('excursions.update');
 Route::delete('/excursions/{id}', 'ExcursionController@destroy')->name('excursions.destroy');
 

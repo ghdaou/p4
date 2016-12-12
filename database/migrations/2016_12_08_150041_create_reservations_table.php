@@ -22,10 +22,7 @@ class CreateReservationsTable extends Migration
              $table->string('first_name');
              $table->string('last_name');
              $table->string('email');
-             $table->integer('user_id');             
-             $table->integer('num_pass');
-             $table->string('pickup_loc');
-             $table->string('event');
+             $table->integer('num_pass');             
              $table->string('spe_instr');
 
          });

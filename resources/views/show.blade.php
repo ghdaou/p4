@@ -31,9 +31,9 @@
                         @foreach ($reservations as $reservation)
                         <tr class='active'>
                             <td>+</td>
-                            <td>{{ $reservation->event }}</td>
+                            <td>{{ $reservation->event->event_name }}</td>
                             <td><a href="/excursions/{{ $reservation->id }}/edit" class="btn btn-primary">Edit</a></td>
-                            <td><a href="/excursions/{{ $reservation->id }}" class="btn btn-primary">Cancel</a></td>
+                            <td><a href="/excursions/{{ $reservation->id }}/delete" class="btn btn-primary">Cancel</a></td>
                         </tr>
                         @endforeach
                 </tbody>

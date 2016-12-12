@@ -12,7 +12,8 @@
 @section('content')
 
     <div class="jumbotron">
-        <form class="form-horizontal">
+        <form class="form-horizontal" action="/excursions" method="POST">
+          {{ csrf_field() }}
           <fieldset>
             <legend>RESERVING SEAT/S</legend>
             <div class="form-group">
@@ -46,7 +47,11 @@
                 <div class="radio">
                   <label>
                       @foreach($pickup_loc_for_checkboxes as $pickup_loc_id => $pickup_loc_name)
-                          <input type='checkbox' value='{{ $pickup_loc_id }}' name='pickup_loc_names[]'> {{ $pickup_loc_name }} <br>
+                          <input
+                            type='checkbox'
+                            value='{{ $pickup_loc_id }}'
+                            name='pickup_loc_names[]'
+                            > {{ $pickup_loc_name }} <br>
                       @endforeach
                   </label>
                 </div>
@@ -57,7 +62,7 @@
               <div class="col-lg-10">
                 <select class="form-control" id="event_id" name='event_id'>
                     @foreach($events_for_dropdown as $event_id => $event_name)
-                         <option value='{{ $event_id }}'>
+                         <option value='{{ $event_id }}' name='event_id'>
                              {{$event_name}}
                          </option>
                      @endforeach

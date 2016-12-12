@@ -13,12 +13,12 @@
 
     <div class="jumbotron">
 
-        <h3>Editing your {{ $reservation->event }} Reservation </h3>
+        <h3>Editing your {{ $reservation->event->event_name }} Reservation </h3>
         <br>
-        <form class="form-horizontal" method='POST' action="excurions/{{ $reservation->id }}">
+        <form class="form-horizontal" method='POST' action="/excursions/{{ $reservation->id }}" >
             {{ method_field('PUT') }}
             {{ csrf_field() }}
-        <input name='id' value='{{$reservation->id}}' type='hidden'>
+            <input name='id' value='{{$reservation->id}}' type='hidden'>
           <fieldset>
             <div class="form-group">
               <label for="inputFirstName" class="col-lg-2 control-label">First Name</label>
@@ -75,7 +75,7 @@
                     @foreach($events_for_dropdown as $event_id => $event_name)
                         <option
                             value='{{ old('event', $reservation->event) }}'
-                            {{ ($reservation->event_id == $event_id) ? 'SELECTED' : '' }}
+                            {{ ($event_id == $reservation->event->id) ? 'SELECTED' : '' }}
                         >{{$event_name}}</option>
                      @endforeach
                 </select>
@@ -91,11 +91,16 @@
             </div>
             <div class="form-group">
               <div class="col-lg-10 col-lg-offset-2">
-                <button type="reset" class="btn btn-default">Cancel</button>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-default">Save Changes</button>
               </div>
             </div>
           </fieldset>
+
+          <div class='error'>
+              @if(count($errors) > 0)
+              Please correct the errors above and try again.
+              @endif
+          </div>
         </form>
     </div>
 
