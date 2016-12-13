@@ -27,6 +27,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    # User has many reservations
     public function reservations() {
         return $this->hasMany('App\Reservation');
     }

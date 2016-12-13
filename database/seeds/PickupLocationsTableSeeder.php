@@ -28,7 +28,7 @@ class PickupLocationsTableSeeder extends Seeder
         DB::table('pickup_locations')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'pickup_loc_name' => 'South_Shore_Mall',
+            'pickup_loc_name' => 'South_Shore_ Mall',
             'pickup_loc_town' => 'Braintree MA',
         ]);
 

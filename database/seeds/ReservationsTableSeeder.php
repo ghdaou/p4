@@ -38,8 +38,5 @@ class ReservationsTableSeeder extends Seeder
              'num_pass' => 2,
              'spe_instr' => 'Go Jets',
          ]);
-
-
-
      }
 }

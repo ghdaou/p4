@@ -15,14 +15,11 @@ class ConnectEventsAndReservations extends Migration
      {
          Schema::table('reservations', function (Blueprint $table) {
 
-             # Remove the field associated with the old way we were storing authors
-             # Whether you need this or not depends on whether your books table is built with an authors column
-             # $table->dropColumn('author');
 
-             # Add a new INT field called `author_id` that has to be unsigned (i.e. positive)
+             # Add a new INT field called `event_id` that has to be unsigned (i.e. positive)
              $table->integer('event_id')->unsigned();
 
-             # This field `author_id` is a foreign key that connects to the `id` field in the `authors` table
+             # This field `event_id` is a foreign key that connects to the `id` field in the `authors` table
              $table->foreign('event_id')->references('id')->on('events');
 
          });

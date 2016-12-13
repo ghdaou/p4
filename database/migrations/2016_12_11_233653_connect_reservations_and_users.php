@@ -23,7 +23,6 @@ class ConnectReservationsAndUsers extends Migration
        public function down()
        {
            Schema::table('reservations', function (Blueprint $table) {
-               # ref: http://laravel.com/docs/5.1/migrations#dropping-indexes
                $table->dropForeign('reervations_user_id_foreign');
                $table->dropColumn('user_id');
            });

@@ -11,11 +11,13 @@ class PickupLocation extends Model
 	*
 	*/
     public function reservations() {
-        # Author has many Books
+        # PickupLocation has many reservations
         # Define a one-to-many relationship.
         return $this->hasMany('App\Reservation');
     }
     /* End Relationship Methods */
+
+    #Custom Model method to return all pickup locations
 
     public static function pickuplocationsForCheckboxes() {
 
