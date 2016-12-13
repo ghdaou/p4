@@ -4,19 +4,23 @@
     Confirm deletion: {{ $reservation->event->event_name }}
 @endsection
 
+@section('head')
+    <link rel="stylesheet" href="/css/reserve.css">
+@endsection
+
 @section('content')
 
-    <h1>Confirm deletion</h1>
-    <form method='POST' action='/excursions/{{ $reservation->id }}'>
+    <div class="res-con">
+        <h1>Confirm Reservation Cancelation</h1>
+        <form method='POST' action='/excursions/{{ $reservation->id }}'>
 
-        {{ method_field('DELETE') }}
+            {{ method_field('DELETE') }}
 
-        {{ csrf_field() }}
+            {{ csrf_field() }}
 
-        <h2>Are you sure you want to delete this reservation?</h2>
-
-        <input type='submit' value='CANCEL' class="btn btn-primary>
-
-    </form>
+            <h2>Are you sure you want to cancel this reservation?</h2>
+            <input type='submit' value='CANCEL MY RESERVATION' class="btn btn-primary>
+        </form>
+    </div>
 
 @endsection

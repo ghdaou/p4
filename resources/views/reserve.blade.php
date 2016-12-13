@@ -19,25 +19,25 @@
             <div class="form-group">
               <label for="inputFirstName" class="col-lg-2 control-label">First Name</label>
               <div class="col-lg-10">
-                <input type="text" class="form-control" id="inputFirstName" placeholder="First Name" name="first_name">
+                <input type="text" class="form-control" id="inputFirstName" value='{{ old('first_name')}}' placeholder="First Name" name="first_name">
               </div>
             </div>
             <div class="form-group">
               <label for="inputLastName" class="col-lg-2 control-label">Last Name</label>
               <div class="col-lg-10">
-                <input type="text" class="form-control" id="inputLastName" placeholder="Last Name" name="last_name">
+                <input type="text" value='{{ old('last_name')}}' class="form-control" id="inputLastName" placeholder="Last Name" name="last_name">
               </div>
             </div>
             <div class="form-group">
               <label for="inputEmail" class="col-lg-2 control-label">Email</label>
               <div class="col-lg-10">
-                <input type="text" class="form-control" id="inputEmail" placeholder="Email" name="email">
+                <input type="text" value='{{ old('email') }}' class="form-control" id="inputEmail" placeholder="Email" name="email">
               </div>
             </div>
             <div class="form-group">
               <label for="inputNuPerons" class="col-lg-2 control-label">Number of Persons</label>
               <div class="col-lg-10">
-                <input type="text" class="form-control" id="inputNuPersons" placeholder="Number of Persons Traveling" name="num_pass">
+                <input type="text" value='{{ old('num_pass')}}' class="form-control" id="inputNuPersons" placeholder="Number of Persons Traveling" name="num_pass">
               </div>
             </div>
 
@@ -73,7 +73,7 @@
             <div class="form-group">
               <label for="textArea" class="col-lg-2 control-label">Special Instructions</label>
               <div class="col-lg-10">
-                <textarea class="form-control" rows="3" id="SpInst" name="spe_instr"></textarea>
+                <textarea class="form-control" rows="3" id="SpInst" name="spe_instr">{{ old('spe_instr')}} </textarea>
                 <span class="help-block">Let us know of any special instructions we should know about.</span>
               </div>
             </div>

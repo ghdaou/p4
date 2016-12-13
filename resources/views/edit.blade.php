@@ -74,7 +74,7 @@
                 <select class="form-control" id="event_id" name='event_id'>
                     @foreach($events_for_dropdown as $event_id => $event_name)
                         <option
-                            value='{{ old('event', $reservation->event) }}'
+                            value='{{ old('event', $reservation->event_id) }}'
                             {{ ($event_id == $reservation->event->id) ? 'SELECTED' : '' }}
                         >{{$event_name}}</option>
                      @endforeach
@@ -85,7 +85,15 @@
             <div class="form-group">
               <label for="textArea" class="col-lg-2 control-label">Special Instructions</label>
               <div class="col-lg-10">
-                <textarea class="form-control" rows="3" id="SpInst" value='{{ old('spe_instr', $reservation->spe_instr) }}' name="spe_instr"></textarea>
+                <textarea
+                class="form-control"
+                rows="3"
+                id="SpInst"
+                name="spe_instr"
+                value='{{ old('spe_instr', $reservation->spe_instr) }}'
+                >
+                {{ old('event', $reservation->spe_instr) }}
+                </textarea>
                 <span class="help-block">Let us know of any special instructions we should know about.</span>
               </div>
             </div>

@@ -61,16 +61,13 @@ class ExcursionController extends Controller
      */
     public function store(Request $request)
     {
-        // // # Validate
-        // //  $this->validate($request, [
-        // //      'first_name' => 'required',
-        // //      'last_name' => 'required',
-        // //      'email' => 'required',
-        // //      'num_pass' => 'required|min:1',
-        // //      'pickup_loc' => 'required',
-        // //      'spe_instr' =>'max:24'
-        //
-        //  ]);
+        //  # Validate
+         $this->validate($request, [
+             'first_name' => 'required|min:2|max:10',
+             'last_name' => 'required|min:2|max:10',
+             'email' => 'required|email',
+             'num_pass' => 'required|min:1',
+         ]);
          # If there were errors, Laravel will redirect the
          # user back to the page that submitted this request
          # The validator will tack on the form data to the request
@@ -133,7 +130,8 @@ class ExcursionController extends Controller
 
         # Just the pick up locations for this reservation
         $pickup_locations_for_this_reservation = [];
-        foreach ($reservation->pickuplocations() as $location) {
+
+        foreach ($reservation->pickuplocations as $location) {
             $pickup_locations_for_this_reservation[] = $location->pickup_loc_name;
         }
 
@@ -155,11 +153,15 @@ class ExcursionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        # [Validation removed for brevity...]
+        $this->validate($request, [
+            'first_name' => 'required|min:2|max:10',
+            'last_name' => 'required|min:2|max:10',
+            'email' => 'required|email',
+            'num_pass' => 'required|min:1',
+        ]);
 
         # Find and update reservation
         $reservation = Reservation::find($request->id);
-        dump ($request);
         $reservation ->first_name = $request->first_name;
         $reservation ->last_name = $request->last_name;
         $reservation ->email = $request->email;
@@ -182,6 +184,9 @@ class ExcursionController extends Controller
         # Sync pickup locations
         $reservation->pickuplocations()->sync($pickup_loc_names);
         $reservation->save();
+        Session::flash('flash_message', $reservation->event->event_name.' was updated!!!');
+        return redirect('/excursions/show');
+
 
     }
     /**

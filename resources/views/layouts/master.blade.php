@@ -39,7 +39,7 @@
               <ul class="nav navbar-nav">
                 <li class="active"><a href="/">HOME <span class="sr-only">(current)</span></a></li>
                 <li><a href="/excursions/create">RESERVATIONS</a></li>
-                <li><a href="#">TESTIMONIALS</a></li>
+                <li><a href="/testimonials">TESTIMONIALS</a></li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">EVENTS <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">

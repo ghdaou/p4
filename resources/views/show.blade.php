@@ -16,7 +16,7 @@
     <div class='welcome-content'>
 
         <div >
-            <h1>Following are your booking/s</h1>
+            <h1>Following Are My Booking/s</h1>
             </br></br>
         </div>
         @if(sizeof($reservations) == 0)
@@ -32,6 +32,8 @@
                         <tr class='active'>
                             <td>+</td>
                             <td>{{ $reservation->event->event_name }}</td>
+                            <td>{{ $reservation->event->date}}</td>
+                            <td>{{ $reservation->event->venue }}</td>
                             <td><a href="/excursions/{{ $reservation->id }}/edit" class="btn btn-primary">Edit</a></td>
                             <td><a href="/excursions/{{ $reservation->id }}/delete" class="btn btn-primary">Cancel</a></td>
                         </tr>

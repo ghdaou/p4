@@ -20,7 +20,7 @@ class PageController extends Controller
     }
     public function testimonials()
     {
-        return 'This is the testimonials page';
+        return view('testimonials');
     }
 
 }
