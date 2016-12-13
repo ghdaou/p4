@@ -6,17 +6,17 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    public function contact()
+    public function commonShow()
     {
-        return 'This is the contact page';
+        return view('common');
     }
-    public function help()
+    public function ssmShow()
     {
-        return 'This is the help page';
+        return view('ssm');
     }
-    public function faq()
+    public function nsmShow()
     {
-        return 'This is the faq page';
+        return view('nsm');
     }
     public function testimonials()
     {

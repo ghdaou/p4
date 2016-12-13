@@ -22,7 +22,6 @@
 </head>
 <body>
 
-    <section>
         <nav class="navbar navbar-inverse">
           <div class="container-fluid">
             <div class="navbar-header">
@@ -52,10 +51,9 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">LOCATIONS <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
                       @foreach (DB::table('pickup_locations')->get()->toArray() as $location)
-                         <li><a href="#">{{ $location->pickup_loc_name}}</a></li>
+                         <li><a href="/maps/{{$location->pickup_loc_name}}">{{ $location->pickup_loc_name}}</a></li>
                       @endforeach
                    </ul>
-                  </ul>
                 </li>
               </ul>
 
@@ -96,8 +94,7 @@
 
         {{-- Main page content will be yielded here --}}
         @yield('content')
-    </section>
-    </br></br>
+    <br><br>
     <footer>
         &copy; {{ date('Y') }}
     </footer>
