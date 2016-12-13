@@ -6,7 +6,7 @@
 
 @section('head')
     <link rel="stylesheet" href="/css/welcome.css">
-    <link rel="stylesheet" href="/css/reserve.css">    
+    <link rel="stylesheet" href="/css/reserve.css">
 @endsection
 
 
@@ -26,6 +26,5 @@
             <a href="/excursions/create/form" class="btn btn-primary">Let's Reserve</a>
         </div>
     </div>
-
 
 @endsection

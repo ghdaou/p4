@@ -40,7 +40,6 @@
                 <input type="text" value='{{ old('num_pass')}}' class="form-control" id="inputNuPersons" placeholder="Number of Persons Traveling" name="num_pass">
               </div>
             </div>
-
             <div class="form-group">
               <label class="col-lg-2 control-label">Pickup Location/s</label>
               <div class="col-lg-10">

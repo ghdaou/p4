@@ -17,7 +17,7 @@
 
         <div >
             <h1>Following Are My Booking/s</h1>
-            </br></br>
+            <br><br>
         </div>
         @if(sizeof($reservations) == 0)
             <div class='jumbotron'>

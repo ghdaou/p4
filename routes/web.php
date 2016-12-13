@@ -19,9 +19,9 @@ Route::put('/excursions/{id}', 'ExcursionController@update')->name('excursions.u
 Route::delete('/excursions/{id}', 'ExcursionController@destroy')->name('excursions.destroy');
 
 Route::get('/contact', 'PageController@contact')->name('page.contact');
-Route::get('/maps/North Shore Mall', 'PageController@nsmShow')->name('page.nsmShow');
-Route::get('/maps/South Shore Mall', 'PageController@ssmShow')->name('page.ssmShow');
-Route::get('/maps/Boston Common', 'PageController@commonShow')->name('page.commonShow');
+Route::get('/maps/North_Shore_Mall', 'PageController@nsmShow')->name('page.nsmShow');
+Route::get('/maps/South_Shore_Mall', 'PageController@ssmShow')->name('page.ssmShow');
+Route::get('/maps/Boston_Common', 'PageController@commonShow')->name('page.commonShow');
 Route::get('/help', 'PageController@help')->name('page.help');
 
 Route::get('/faq', 'PageController@faq')->name('page.faq');

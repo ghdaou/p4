@@ -103,7 +103,6 @@
               </div>
             </div>
           </fieldset>
-
           <div class='error'>
               @if(count($errors) > 0)
               Please correct the errors above and try again.
@@ -111,6 +110,5 @@
           </div>
         </form>
     </div>
-
 
 @endsection

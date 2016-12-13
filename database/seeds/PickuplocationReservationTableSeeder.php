@@ -17,8 +17,8 @@ class PickuplocationReservationTableSeeder extends Seeder
          # First, create an array of all the books we want to associate tags with
          # The *key* will be the book title, and the *value* will be an array of tags.
          $reservations =[
-             '1' => ['North Shore Mall','South Shore Mall'],
-             '2' => ['North Shore Mall','Boston Common'],
+             '1' => ['North_Shore_Mall','South_Shore_Mall'],
+             '2' => ['North_Shore_Mall','Boston_Common'],
          ];
 
          # Now loop through the above array, creating a new pivot for each book to tag
