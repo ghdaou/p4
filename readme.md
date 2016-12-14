@@ -8,11 +8,12 @@ Documentation for the site can be found on [Github](https://github.com/ghdaou/p4
 
 ## Live link
 
-[Live](http://p4.backbayexpress.com) link.
+[Live on Digital Ocean](http://p4.backbayexpress.com).
 
-## Themes and outside sources user_id
+## Themes and outside sources used
 
-Bootswatch Theme based on Bootstrap was used: [Them source](https://bootswatch.com)
+Bootswatch Theme based on Bootstrap was used: [Them source](https://bootswatch.com).
 
+## Screen Shot
 
-## License
+[YouTube](http://p4.backbayexpress.com).
