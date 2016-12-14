@@ -18,8 +18,7 @@ class PracticeController extends Controller
 {
     public function example19() {
 
-        $reservation = Reservation::first();
-        dump($reservation->pickuplocations());
+        return view('datepicker');
 
     }
 
