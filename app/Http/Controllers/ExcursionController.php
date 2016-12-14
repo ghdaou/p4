@@ -66,7 +66,7 @@ class ExcursionController extends Controller
              'first_name' => 'required|min:2|max:10',
              'last_name' => 'required|min:2|max:10',
              'email' => 'required|email',
-             'num_pass' => 'required|min:1',
+             'num_pass' => 'required|min:1|numeric',
          ]);
          # If there were errors, Laravel will redirect the
          # user back to the page that submitted this request
@@ -157,7 +157,7 @@ class ExcursionController extends Controller
             'first_name' => 'required|min:2|max:10',
             'last_name' => 'required|min:2|max:10',
             'email' => 'required|email',
-            'num_pass' => 'required|min:1',
+            'num_pass' => 'required|min:1|numeric',
         ]);
 
         # Find and update reservation

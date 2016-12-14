@@ -66,7 +66,7 @@ Route::get('/debug', function() {
 
 /**
 * A quick and dirty way to set up a whole bunch of practice routes
-* 
+*
 */
 Route::get('/practice', 'PracticeController@index')->name('practice.index');
 for($i = 0; $i < 100; $i++) {
