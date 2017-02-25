@@ -6,6 +6,8 @@
 |--------------------------------------------------------------------------
 */
 
+Route::get('/gpstracker', 'GpsTrackerController@index')->name('busservice.index');
+
 Route::get('/', 'BusServiceController@index')->name('busservice.index');
 
 Route::get('/', 'ExcursionController@index')->name('excursion.index');

@@ -14,9 +14,9 @@ $pathToSQLite = 'sqlite\gpstracker.sqlite';
 // ======== End of user-configurable variables =======================
 
 $dbuser = 'gpstracker_user';
-$dbpass = 'gpstracker';
+$dbpass = 'fxiZhxaDEr';
 
-$params = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, 
+$params = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC);
 
 switch ($dbType) {
