@@ -6,49 +6,49 @@
     var intervalID = 0;
     var sessionIDArray = [];
     var viewingAllRoutes = false;
-        
+
     getAllRoutesForMap();
     loadRoutesIntoDropdownBox();
-    
+
     $("#routeSelect").change(function() {
         if (hasMap()) {
             viewingAllRoutes = false;
-            
+
             getRouteForMap();
-        } 
+        }
     });
-       
+
     $("#refresh").click(function() {
         if (viewingAllRoutes) {
-            getAllRoutesForMap(); 
+            getAllRoutesForMap();
         } else {
             if (hasMap()) {
                 getRouteForMap();
-            }             
+            }
         }
     });
-       
+
     $("#delete").click(function() {
         deleteRoute();
-    });       
-        
-    $('#autorefresh').click(function() { 
+    });
+
+    $('#autorefresh').click(function() {
         if (autoRefresh) {
-            turnOffAutoRefresh();           
+            turnOffAutoRefresh();
         } else {
-            turnOnAutoRefresh();                     
+            turnOnAutoRefresh();
         }
-    }); 
-    
+    });
+
     $("#viewall").click(function() {
         getAllRoutesForMap();
     });
-        
+
     function getAllRoutesForMap() {
         viewingAllRoutes = true;
         routeSelect.selectedIndex = 0;
         showPermanentMessage('Please select a route below');
-                   
+
         $.ajax({
             url: 'getallroutesformap.php',
             type: 'GET',
@@ -61,11 +61,11 @@
             console.log("errorThrown: " + errorThrown);
         }
         });
-    }           
-        
-    function loadRoutesIntoDropdownBox() {      
+    }
+
+    function loadRoutesIntoDropdownBox() {
         $.ajax({
-            url: 'getroutes.php',
+            url: 'gpstracker/getroutes.php',
             type: 'GET',
             dataType: 'json',
             success: function(data) {
@@ -76,9 +76,9 @@
             console.log("errorThrown: " + errorThrown);
         }
         });
-    }    
-    
-    function loadRoutes(json) {        
+    }
+
+    function loadRoutes(json) {
         if (json.length == 0) {
             showPermanentMessage('There are no routes available to view');
         }
@@ -92,7 +92,7 @@
             // when a user taps on a marker, the position of the sessionID in this array is the position of the route
             // in the dropdown box. it's used below to set the index of the dropdown box when the map is changed
             sessionIDArray = [];
-            
+
             // iterate through the routes and load them into the dropdwon box.
             $(json.routes).each(function(key, value){
                 var option = document.createElement('option');
@@ -111,7 +111,7 @@
         }
     }
 
-    function getRouteForMap() { 
+    function getRouteForMap() {
         if (hasMap()) {
             // console.log($("#routeSelect").prop("selectedIndex"));
 
@@ -129,13 +129,13 @@
                        console.log("errorThrown: " + errorThrown);
                     }
                });
-        
-        } 
+
+        }
     }
 
     function loadGPSLocations(json) {
         // console.log(JSON.stringify(json));
-        
+
         if (json.length == 0) {
             showPermanentMessage('There is no tracking data to view');
             map.innerHTML = '';
@@ -144,10 +144,10 @@
             if (map.id == 'map-canvas') {
                 // clear any old map objects
                 document.getElementById('map-canvas').outerHTML = "<div id='map-canvas'></div>";
-           
+
                 // use leaflet (http://leafletjs.com/) to create our map and map layers
                 var gpsTrackerMap = new L.map('map-canvas');
-            
+
                 var openStreetMapsURL = ('https:' == document.location.protocol ? 'https://' : 'http://') +
                  '{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
                 var openStreetMapsLayer = new L.TileLayer(openStreetMapsURL,
@@ -156,7 +156,7 @@
                 // need to get your own bing maps key, http://www.microsoft.com/maps/create-a-bing-maps-key.aspx
                 // var bingMapsLayer = new L.BingLayer("GetAKey");
                 var googleMapsLayer = new L.Google('ROADMAP');
-            
+
                 // this fixes the zoom buttons from freezing
                 // https://github.com/shramov/leaflet-plugins/issues/62
                 L.polyline([[0, 0], ]).addTo(gpsTrackerMap);
@@ -175,21 +175,21 @@
                 var finalLocation = false;
                 var counter = 0;
                 var locationArray = [];
-                
+
                 // iterate through the locations and create map markers for each location
                 $(json.locations).each(function(key, value){
                     var latitude =  $(this).attr('latitude');
                     var longitude = $(this).attr('longitude');
                     var tempLocation = new L.LatLng(latitude, longitude);
-                    
-                    locationArray.push(tempLocation);                    
+
+                    locationArray.push(tempLocation);
                     counter++;
 
                     // want to set the map center on the last location
                     if (counter == $(json.locations).length) {
                         //gpsTrackerMap.setView(tempLocation, zoom);  if using fixed zoom
                         finalLocation = true;
-                    
+
                         if (!viewingAllRoutes) {
                             displayCityName(latitude, longitude);
                         }
@@ -209,15 +209,15 @@
                         $(this).attr('extraInfo'),
                         gpsTrackerMap, finalLocation);
                 });
-                
+
                 // fit markers within window
                 var bounds = new L.LatLngBounds(locationArray);
                 gpsTrackerMap.fitBounds(bounds);
-                
+
                 // restarting interval here in case we are coming from viewing all routes
                 if (autoRefresh) {
                     restartInterval();
-                } 
+                }
             }
     }
 
@@ -264,27 +264,27 @@
         var gpstrackerMarker;
         var title = userName + " - " + gpsTime;
 
-        // make sure the final red marker always displays on top 
+        // make sure the final red marker always displays on top
         if (finalLocation) {
             gpstrackerMarker = new L.marker(new L.LatLng(latitude, longitude), {title: title, icon: markerIcon, zIndexOffset: 999}).bindPopup(popupWindowText).addTo(map);
         } else {
             gpstrackerMarker = new L.marker(new L.LatLng(latitude, longitude), {title: title, icon: markerIcon}).bindPopup(popupWindowText).addTo(map);
         }
-        
+
         // if we are viewing all routes, we want to go to a route when a user taps on a marker instead of displaying popupWindow
         if (viewingAllRoutes) {
             gpstrackerMarker.unbindPopup();
-            
-            gpstrackerMarker.on("click", function() {        
+
+            gpstrackerMarker.on("click", function() {
                 var url = 'getrouteformap.php?sessionid=' + sessionID;
 
                 viewingAllRoutes = false;
- 
+
                 var indexOfRouteInRouteSelectDropdwon = sessionIDArray.indexOf(sessionID) + 1;
                 routeSelect.selectedIndex = indexOfRouteInRouteSelectDropdwon;
 
                 if (autoRefresh) {
-                    restartInterval(); 
+                    restartInterval();
                 }
 
                 $.ajax({
@@ -300,7 +300,7 @@
                     }
                  });
             }); // on click
-        } 
+        }
     }
 
     function getCompassImage(azimuth) {
@@ -323,7 +323,7 @@
 
         return "";
     }
-    
+
     // check to see if we have a map loaded, don't want to autorefresh or delete without it
     function hasMap() {
         if (routeSelect.selectedIndex == 0) { // means no map
@@ -343,7 +343,7 @@
             if (status == google.maps.GeocoderStatus.OK) {
                 // results[0] is full address
                 if (results[1]) {
-                    var reverseGeocoderResult = results[1].formatted_address; 
+                    var reverseGeocoderResult = results[1].formatted_address;
                     showPermanentMessage(reverseGeocoderResult);
                 }
             } else {
@@ -355,40 +355,40 @@
     function turnOffAutoRefresh() {
         showMessage('Auto Refresh Off');
         $('#autorefresh').val('Auto Refresh Off');
-    
+
         autoRefresh = false;
-        clearInterval(intervalID);         
+        clearInterval(intervalID);
     }
 
     function turnOnAutoRefresh() {
-        showMessage('Auto Refresh On (1 min)'); 
+        showMessage('Auto Refresh On (1 min)');
         $('#autorefresh').val('Auto Refresh On');
         autoRefresh = true;
 
-        restartInterval();         
+        restartInterval();
     }
-    
+
     function restartInterval() {
         // if someone is viewing all routes and then switches to a single route
         // while autorefresh is on then the setInterval is going to be running with getAllRoutesForMap
-        // and not getRouteForMap 
+        // and not getRouteForMap
 
         clearInterval(intervalID);
-        
+
         if (viewingAllRoutes) {
-            intervalID = setInterval(getAllRoutesForMap, 60 * 1000); // one minute 
+            intervalID = setInterval(getAllRoutesForMap, 60 * 1000); // one minute
         } else {
-            intervalID = setInterval(getRouteForMap, 60 * 1000);          
-        }          
+            intervalID = setInterval(getRouteForMap, 60 * 1000);
+        }
     }
 
     function deleteRoute() {
         if (hasMap()) {
-		
+
     		// comment out these two lines to get delete working
     		// confirm("Disabled here on test website, this works fine.");
     		// return false;
-		
+
             var answer = confirm("This will permanently delete this route\n from the database. Do you want to delete?");
             if (answer){
                 var url = 'deleteroute.php' + $('#routeSelect').val();
@@ -417,7 +417,7 @@
         document.getElementById('map-canvas').outerHTML = "<div id='map-canvas'></div>";
 
         $.ajax({
-               url: 'getroutes.php',
+               url: 'gpstracker/getroutes.php',
                type: 'GET',
                success: function(data) {
                   loadRoutes(data);
@@ -429,7 +429,7 @@
     function showMessage(message) {
         // if we show a message like start auto refresh, we want to put back our current address afterwards
         var tempMessage =  $('#messages').html();
-        
+
         $('#messages').html(message);
         setTimeout(function() {
             $('#messages').html(tempMessage);
@@ -450,12 +450,11 @@
         }
         return str;
     }
-    
+
     function setTheme() {
         //var bodyBackgroundColor = $('body').css('backgroundColor');
         //$('.container').css('background-color', bodyBackgroundColor);
         //$('body').css('background-color', '#ccc');
-        // $('head').append('<link rel="stylesheet" href="style2.css" type="text/css" />');        
+        // $('head').append('<link rel="stylesheet" href="style2.css" type="text/css" />');
     }
 });
-
