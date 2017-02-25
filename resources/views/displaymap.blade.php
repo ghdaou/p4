@@ -4,27 +4,27 @@
     <meta charset="UTF-8">
     <title>Gps Tracker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="//maps.google.com/maps/api/js?v=3&sensor=false&libraries=adsense"></script>
-    <script src="js/maps.js"></script>
-    <script src="js/leaflet-0.7.5/leaflet.js"></script>
-    <script src="js/leaflet-plugins/google.js"></script>
-    <script src="js/leaflet-plugins/bing.js"></script>
-    <link rel="stylesheet" href="js/leaflet-0.7.5/leaflet.css">    
-    <!-- 
-        to change themes, select a theme here:  http://www.bootstrapcdn.com/#bootswatch_tab 
+
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://maps.google.com/maps/api/js?v=3&sensor=false&libraries=adsense"></script>
+    <script src="gpstracker/js/maps.js"></script>
+    <script src="gpstracker/js/leaflet-0.7.5/leaflet.js"></script>
+    <script src="gpstracker/js/leaflet-plugins/google.js"></script>
+    <script src="gpstracker/js/leaflet-plugins/bing.js"></script>
+    <link rel="stylesheet" href="gpstracker/js/leaflet-0.7.5/leaflet.css">
+    <!--
+        to change themes, select a theme here:  http://www.bootstrapcdn.com/#bootswatch_tab
         and then change the word after 3.2.0 in the following link to the new theme name
-    -->    
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.5/cerulean/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styles.css">
-            
+    -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/cerulean/bootstrap.min.css">
+    <link rel="stylesheet" href="gpstracker/css/styles.css">
+
 </head>
 <body>
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-4" id="toplogo">
-                <img id="halimage" src="images/gpstracker-man-blue-37.png">GpsTracker
+                <img id="halimage" src="gpstracker/images/gpstracker-man-blue-37.png">GpsTracker
             </div>
             <div class="col-sm-8" id="messages"></div>
         </div>
@@ -52,7 +52,7 @@
                 <input type="button" id="viewall" value="View All" tabindex="5" class="btn btn-primary">
             </div>
         </div>
-    </div>       
+    </div>
 </body>
 </html>
     
