@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class BusServiceController extends Controller
+class GpsTrackerController extends Controller
 {
     public function index()
     {
