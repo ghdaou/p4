@@ -1,5 +1,5 @@
 <?php
-    include 'dbconnect.php';
+    include 'gpstracker/dbconnect.php';
 
     switch ($dbType) {
         case DB_MYSQL:
@@ -19,7 +19,7 @@
         $json .= $row['json'];
         $json .= ',';
     }
-   
+
     $json = rtrim($json, ",");
     $json .= '] }';
 
