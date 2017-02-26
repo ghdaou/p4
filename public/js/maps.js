@@ -50,7 +50,7 @@
         showPermanentMessage('Please select a route below');
 
         $.ajax({
-            url: 'getallroutesformap.php',
+            url: 'gpstracker/getallroutesformap.php',
             type: 'GET',
             dataType: 'json',
             success: function(data) {
