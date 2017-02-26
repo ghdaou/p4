@@ -50,7 +50,7 @@
         showPermanentMessage('Please select a route below');
 
         $.ajax({
-            url: 'gpstracker/getallroutesformap.php',
+            url: '/gpstracker/getallroutesformap.php',
             type: 'GET',
             dataType: 'json',
             success: function(data) {
@@ -65,7 +65,7 @@
 
     function loadRoutesIntoDropdownBox() {
         $.ajax({
-            url: 'gpstracker/getroutes.php',
+            url: '/gpstracker/getroutes.php',
             type: 'GET',
             dataType: 'json',
             success: function(data) {
@@ -115,7 +115,7 @@
         if (hasMap()) {
             // console.log($("#routeSelect").prop("selectedIndex"));
 
-           var url = 'getrouteformap.php' + $('#routeSelect').val();
+           var url = '/gpstracker/getrouteformap.php' + $('#routeSelect').val();
 
             $.ajax({
                    url: url,
@@ -276,7 +276,7 @@
             gpstrackerMarker.unbindPopup();
 
             gpstrackerMarker.on("click", function() {
-                var url = 'getrouteformap.php?sessionid=' + sessionID;
+                var url = '/gpstracker/getrouteformap.php?sessionid=' + sessionID;
 
                 viewingAllRoutes = false;
 
@@ -391,7 +391,7 @@
 
             var answer = confirm("This will permanently delete this route\n from the database. Do you want to delete?");
             if (answer){
-                var url = 'deleteroute.php' + $('#routeSelect').val();
+                var url = '/gpstracker/deleteroute.php' + $('#routeSelect').val();
 
                 $.ajax({
                        url: url,
@@ -417,7 +417,7 @@
         document.getElementById('map-canvas').outerHTML = "<div id='map-canvas'></div>";
 
         $.ajax({
-               url: 'gpstracker/getroutes.php',
+               url: '/gpstracker/getroutes.php',
                type: 'GET',
                success: function(data) {
                   loadRoutes(data);
