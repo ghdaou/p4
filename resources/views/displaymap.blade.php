@@ -11,7 +11,7 @@
     -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/cerulean/bootstrap.min.css">
     <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/js/leaflet-0.7.5/leaflet.css">
+    <link rel="stylesheet" href="/css/leaflet-0.7.5/leaflet.css">
 
 </head>
 <body>
