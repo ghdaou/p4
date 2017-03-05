@@ -50,7 +50,7 @@
         showPermanentMessage('Please select a route below');
 
         $.ajax({
-            url: '/php/getallroutesformap.php',
+            url: '../php/getallroutesformap.php',
             type: 'GET',
             dataType: 'json',
             success: function(data) {
@@ -65,7 +65,7 @@
 
     function loadRoutesIntoDropdownBox() {
         $.ajax({
-            url: '/php/getroutes.php',
+            url: '../php/getroutes.php',
             type: 'GET',
             dataType: 'json',
             success: function(data) {
@@ -417,7 +417,7 @@
         document.getElementById('map-canvas').outerHTML = "<div id='map-canvas'></div>";
 
         $.ajax({
-               url: '/php/getroutes.php',
+               url: '../php/getroutes.php',
                type: 'GET',
                success: function(data) {
                   loadRoutes(data);
