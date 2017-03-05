@@ -13,7 +13,7 @@ $pathToSQLite = 'sqlite\gpstracker.sqlite';
 
 // ======== End of user-configurable variables =======================
 
-$dbuser = 'gpstracker_user';
+$dbuser = 'root';
 $dbpass = 'fxiZhxaDEr';
 
 $params = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,

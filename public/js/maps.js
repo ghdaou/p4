@@ -226,7 +226,7 @@
         var iconUrl;
 
         if (finalLocation) {
-            iconUrl = '../gpstracker/coolred_small.png';
+            iconUrl = '../gpstracker/images/coolred_small.png';
         } else {
             iconUrl = '../gpstracker/images/coolgreen2_small.png';
         }
