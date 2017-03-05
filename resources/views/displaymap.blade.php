@@ -49,7 +49,7 @@
     </div>
 
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="https://maps.google.com/maps/api/js?v=3&sensor=false&libraries=adsense"></script>
+    <script src="https://maps.google.com/maps/api/js?key=AIzaSyCiPr270xpNQnzasg_W4fU3uuP_ZyvFr4c&sensor=false&libraries=adsense"></script>
     <script src="/js/maps.js"></script>
     <script src="/js/leaflet-0.7.5/leaflet.js"></script>
     <script src="/js/leaflet-plugins/google.js"></script>
