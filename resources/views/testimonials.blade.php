@@ -5,15 +5,15 @@
 @endsection
 
 @section('head')
-    <link rel="stylesheet" href="/css/welcome.css">
-    <link rel="stylesheet" href="/css/testimonials.css">
+    <link rel="stylesheet" href="css/welcome.css">
+    <link rel="stylesheet" href="css/testimonials.css">
 @endsection
 
 
 @section('content')
 
     <div class='welcome-content'>
-        <div class='jumbotron'>        
+        <div class='jumbotron'>
             <p>
                 "Thank you. I used your service from Peabody yesterday to attend the Pats game.
                 The 2 drivers I had were both wonderful people and great drivers.

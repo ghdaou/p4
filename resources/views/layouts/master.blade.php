@@ -13,7 +13,7 @@
     <link href='https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/lumen/bootstrap.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-    <link rel="stylesheet" href="/css/custom.min.css">
+    <link rel="stylesheet" href='css/custom.min.css'>
 
 
     {{-- Yield any page specific CSS files or anything else you might want in the head --}}
@@ -100,9 +100,9 @@
     </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="/js/custom.js"></script>
+    <script src="js/custom.js"></script>
 
     {{-- Yield any page specific JS files or anything else you might want at the end of the body --}}
     @yield('body')

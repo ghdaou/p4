@@ -1,7 +1,7 @@
 .welcome-content{
     text-align: center;
-    background-image: url("/images/buses.jpg");
-    height: 700px;
+    background-image: url("../images/buses.jpg");
+    height: 600px;
     background-size: cover;
 }
 
