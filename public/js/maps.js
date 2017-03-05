@@ -115,7 +115,7 @@
         if (hasMap()) {
             // console.log($("#routeSelect").prop("selectedIndex"));
 
-           var url = '/gpstracker/getrouteformap.php' + $('#routeSelect').val();
+           var url = '../gpstracker/getrouteformap.php' + $('#routeSelect').val();
 
             $.ajax({
                    url: url,
@@ -226,9 +226,9 @@
         var iconUrl;
 
         if (finalLocation) {
-            iconUrl = 'images/coolred_small.png';
+            iconUrl = '../gpstracker/coolred_small.png';
         } else {
-            iconUrl = 'images/coolgreen2_small.png';
+            iconUrl = '../gpstracker/images/coolgreen2_small.png';
         }
 
         var markerIcon = new L.Icon({
@@ -276,7 +276,7 @@
             gpstrackerMarker.unbindPopup();
 
             gpstrackerMarker.on("click", function() {
-                var url = '/gpstracker/getrouteformap.php?sessionid=' + sessionID;
+                var url = '../gpstracker/getrouteformap.php?sessionid=' + sessionID;
 
                 viewingAllRoutes = false;
 
