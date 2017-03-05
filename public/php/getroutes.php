@@ -1,5 +1,5 @@
 <?php
-    include '../../gpstracker/dbconnect.php';
+    include '../gpstracker/dbconnect.php';
 
     switch ($dbType) {
         case DB_MYSQL:
