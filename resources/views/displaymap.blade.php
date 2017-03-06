@@ -10,15 +10,15 @@
         and then change the word after 3.2.0 in the following link to the new theme name
     -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/cerulean/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/js/leaflet-0.7.5/leaflet.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="js/leaflet-0.7.5/leaflet.css">
 
 </head>
 <body>
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-4" id="toplogo">
-                <img id="halimage" src="/images/gpstracker-man-blue-37.png">GpsTracker
+                <img id="halimage" src="images/gpstracker-man-blue-37.png">GpsTracker
             </div>
             <div class="col-sm-8" id="messages"></div>
         </div>
@@ -50,10 +50,10 @@
 
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="https://maps.google.com/maps/api/js?key=AIzaSyDulno7jfieNFvqX5DR_2so6d0vR6UQEUw&sensor=false&libraries=adsense"></script>
-    <script src="/js/maps.js"></script>
-    <script src="/js/leaflet-0.7.5/leaflet.js"></script>
-    <script src="/js/leaflet-plugins/google.js"></script>
-    <script src="/js/leaflet-plugins/bing.js"></script>
+    <script src="js/maps.js"></script>
+    <script src="js/leaflet-0.7.5/leaflet.js"></script>
+    <script src="js/leaflet-plugins/google.js"></script>
+    <script src="js/leaflet-plugins/bing.js"></script>
 
 </body>
 </html>
